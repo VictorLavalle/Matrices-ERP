@@ -1,0 +1,78 @@
+@import "global";
+
+.table-matrix {
+  max-width: 1600px;
+  max-height: 500px;
+  overflow: auto;
+  border: 0.5px solid $grayColor;
+  border-radius: 20px;
+  padding: 2rem;
+
+  @media (max-width: 1199px) {
+    max-width: 800px;
+  }
+
+  @media (max-width: 991px) {
+    max-width: 600px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 580px;
+    max-height: 400px;
+  }
+
+  @media (max-width: 575px) {
+    max-width: 270px;
+    max-height: 300px;
+  }
+}
+
+
+
+tbody {
+  tr {
+    text-align: center;
+
+    td.rows{
+      color: red;
+    }
+
+    td {
+      padding-top: 2rem;
+
+      ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+
+
+        li {
+          position: relative;
+          margin-right: 1rem;
+
+          p {
+            margin-left: 3rem;
+          }
+
+          span {
+            input {
+              margin-right: 3rem;
+              margin-top: -6px;
+              width: 5rem;
+              border: 1px solid $grayColorVariation-2;
+              border-radius: 5px;
+              text-align: center;
+              background-color: transparent;
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+
+

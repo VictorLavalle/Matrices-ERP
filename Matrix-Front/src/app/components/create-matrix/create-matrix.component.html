@@ -1,0 +1,199 @@
+<div class="accordion" id="matrix-form">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="matrix-form-header">
+      <button
+        class="accordion-button collapsed create-matrix-accordion"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#matrix-form-collapse"
+        aria-expanded="false"
+        aria-controls="matrix-form-collapse"
+      >
+        Crear Nueva Matriz
+      </button>
+    </h2>
+    <div
+      id="matrix-form-collapse"
+      class="accordion-collapse collapse"
+      aria-labelledby="matrix-form-header"
+      data-bs-parent="#matrix-form"
+    >
+      <div class="accordion-body">
+        <div class="container-fluid mt-2">
+
+          <div class="justify-content-center align-items-center mb-5">
+            <p class="text-center fw-bold">Nombre de la matriz</p>
+            <input
+              type="text"
+              class="form-control"
+              id="matrixname"
+              placeholder="The matrix"
+              (input)="onInputChange()"
+              [(ngModel)]="matrixName"
+            />
+          </div>
+
+          <div class="row justify-content-center align-items-center mb-2">
+
+
+            <div class="col-md-4 me-5">
+              <p class="text-center fw-bold">Valores de las fila<br />(Eje Y)</p>
+
+              <ul class="input-labels">
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Valor de inicio de las filas"
+                  >
+                    <label for="y-startValue">Valor Inicial</label>
+                    <input
+                      type="number"
+                      id="y-startValue"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Valor Inicial Eje Y')"
+                      [(ngModel)]="ylabelStart"
+                    />
+                  </span>
+                </li>
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Valor de final de las filas"
+                  >
+                    <label for="y-endValue">Valor Final</label>
+                    <input
+                      type="number"
+                      id="y-endValue"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Valor Final Eje Y')"
+                      [(ngModel)]="ylabelEnd"
+                    />
+                  </span>
+                </li>
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Intervalo en el que se incrementa"
+                  >
+                    <label for="y-interval">Intervalo</label>
+                    <input
+                      type="number"
+                      id="y-interval"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      step="0.01"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Intervalo Eje Y')"
+                      [(ngModel)]="ylabelInterval"
+                    />
+                  </span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col-md-4">
+              <p class="text-center fw-bold">Valores de las columnas<br />(Eje X)</p>
+
+              <ul class="input-labels">
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Valor de inicio de las columnas"
+                  >
+                    <label for="x-startValue">Valor Inicial</label>
+                    <input
+                      type="number"
+                      id="x-startValue"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Valor Inicial Eje X')"
+                      [(ngModel)]="xlabelStart"
+                    />
+                  </span>
+                </li>
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Valor de fin de las columnas"
+                  >
+                    <label for="x-endValue">Valor Final</label>
+                    <input
+                      type="number"
+                      id="x-endValue"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Valor Final Eje X')"
+                      [(ngModel)]="xlabelEnd"
+                    />
+                  </span>
+                </li>
+                <li>
+                  <span
+                    class="d-inline-block"
+                    tabindex="0"
+                    data-bs-toggle="tooltip"
+                    title="Intervalo en el que se incrementa"
+                  >
+                    <label for="x-interval">Intervalo</label>
+                    <input
+                      type="number"
+                      id="x-interval"
+                      class="form-control"
+                      placeholder="0"
+                      min="0"
+                      step="0.01"
+                      (input)="onInputChange()"
+                      (input)="limitDecimals($event, 'Intervalo Eje X')"
+                      [(ngModel)]="xlabelInterval"
+                    />
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="d-grid mt-3 justify-content-center align-items-center">
+            <span
+              class="d-inline-block"
+              tabindex="0"
+              data-bs-toggle="tooltip"
+              title="Desactivado hasta llenar todos los campos"
+            >
+              <button
+                class="btn btn-sm btn-primary create-matrix-btn"
+                type="button"
+                [disabled]="isButtonDisabled"
+                (click)="createMatrix()"
+              >
+                <i class="bi bi-plus me-1"></i>
+                Crear
+              </button>
+            </span>
+          </div>
+          <div id="alert-container" class="alert d-none mt-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

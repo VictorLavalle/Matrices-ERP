@@ -1,0 +1,44 @@
+@import "global";
+
+#matrix-form {
+  width: 50rem;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.accordion-item {
+  background-color: transparent !important;
+  border: transparent solid;
+  border-bottom: $blackColor solid 0.5px;
+}
+
+.tooltip-btn {
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  color: $blueColor;
+  font-size: 1.5rem;
+}
+
+.create-matrix-btn {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 15px;
+}
+
+.input-labels{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    margin-bottom: 10px;
+
+    label{
+      margin-left: 10px;
+      color: $grayColorVariation-1;
+    }
+
+  }
+}

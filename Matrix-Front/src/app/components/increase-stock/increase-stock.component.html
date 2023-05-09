@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="mt-5 col-md-12 text-center">
+    <h1>Matrices - ERP</h1>
+    <h2>Incrementar inventario</h2>
+  </div>
+</div>
+<div class="d-flex justify-content-center align-items-center flex-column mt-5">
+  <ng-container *ngIf="matrix">
+    <p>
+      <b>Nombre:</b><span class="ms-3">{{ matrix.name }}</span>
+    </p>
+    <p>A&ntilde;ada la cantidad de elementos a agregar en cada casilla</p>
+  </ng-container>
+  <ng-container *ngIf="matrix">
+    <div class="d-flex justify-content-center">
+      <div class="table-responsive table-matrix">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Inventario</th>
+              <th *ngFor="let column of matrix.ylabels" scope="col" class="text-center ms-3">
+                {{ column }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of matrix.xlabels; index as i" class="text-center fw-bold">
+              <td>
+                {{ row }}
+              </td>
+              <td *ngFor="let column of matrix.ylabels; index as j" class="text-center">
+                <ul class="text-center justify-content-center">
+                  <li data-bs-toggle="tooltip" title="Valor Actual">
+                    <p>
+                      {{ matrix.data[j][i] }}
+                    </p>
+                  </li>
+                  <li>
+                    <span data-bs-toggle="tooltip" title="Unidades a incrementar">
+                      <input
+                        (paste)="onPaste($event)"
+                        [(ngModel)]="inputsData[j][i]"
+                        type="number"
+                        class="form-control"
+                        aria-label="Cantidad a incrementar"
+                        aria-describedby="basic-addon1"
+                        min="0"
+                      />
+                    </span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="d-flex justify-content-center mt-3">
+    <button class="btn btn-info me-5 mb-1" type="button" routerLink="/home" id="back-to-home">
+      <i class="bi bi-arrow-left-short me-1"></i>
+      Regresar
+    </button>
+
+    <button class="btn btn-success me-1 mb-1" type="button" (click)="save()">
+      <i class="bi bi-save2 me-1"></i>
+      Guardar inventario
+    </button>
+  </div>
+  <div id="alert-container" class="alert d-none mt-3"></div>
+</div>

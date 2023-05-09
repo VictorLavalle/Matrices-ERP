@@ -1,0 +1,1019 @@
+{
+	"info": {
+		"_postman_id": "8fbf0d48-fe5c-4565-aa5b-cb8367aebf06",
+		"name": "ERP Matrices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24039086"
+	},
+	"item": [
+		{
+			"name": "Matrices",
+			"item": [
+				{
+					"name": "Define a new matrix",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"new matrix 10\",\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/matrices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Correctly created a new matrix",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"new matrix\",\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 01:18:49 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"name\": \"new matrix\",\n  \"data\": [\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ],\n  \"size\": 32,\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}\n"
+						},
+						{
+							"name": "Tried to create a new matrix with a taken name",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"new matrix\",\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 02:19:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-04-26T20:19:55.514881919-06:00\",\n    \"message\": \"Matrix name 'new matrix' is already taken\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete matrix by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/matrices/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Correctly deleted a matrix",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 01:19:47 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Tried to delete a non existent matrix",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 02:20:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-04-26T20:20:40.262980302-06:00\",\n    \"message\": \"Matrix with id '10' not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get matrix by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/matrices/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Correctly retrieved a matrix",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 01:22:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 3,\n  \"name\": \"new matrix\",\n  \"data\": [\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ],\n  \"size\": 32,\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}\n"
+						},
+						{
+							"name": "Tried to retrieve a non existent matrix",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 02:21:16 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-04-26T20:21:16.454637795-06:00\",\n    \"message\": \"Matrix with id '3' not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Increase matrix stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 69]\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/matrices/:id/increaseStock",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices",
+								":id",
+								"increaseStock"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Correctly increased a matrix's stock",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 69]\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id/increaseStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id",
+										"increaseStock"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 01:22:44 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 3,\n  \"name\": \"new matrix\",\n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 69]\n  ],\n  \"size\": 32,\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}\n"
+						},
+						{
+							"name": "Incorrect matrix dimensions sent for stock update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n  \"data\": [\n    [10, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 69]\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id/increaseStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id",
+										"increaseStock"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 16:11:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-05-02T10:11:54.458419147-06:00\",\n    \"message\": \"Expected dimensions (4, 8) but received (3, 8)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Decrease matrix stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ]\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/matrices/:id/reduceStock",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices",
+								":id",
+								"reduceStock"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Correctly decreased a matrix's stock",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 69]\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id/reduceStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id",
+										"reduceStock"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 01:24:43 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 3,\n  \"name\": \"new matrix\",\n  \"data\": [\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ],\n  \"size\": 32,\n  \"xlabels\": [0.25, 0.5, 0.75, 1],\n  \"ylabels\": [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]\n}\n"
+						},
+						{
+							"name": "Tried to reduce stock that is not available",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n  \"data\": [\n    [10, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id/reduceStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id",
+										"reduceStock"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 27 Apr 2023 15:24:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-04-27T09:24:44.359222627-06:00\",\n    \"message\": \"Stock not sufficient in matrix with id '1'. Cell 0.25 x 0.25 does not have 10 available, only 0\"\n}"
+						},
+						{
+							"name": "Incorrect matrix dimensions sent for stock update",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \n  \"data\": [\n    [10, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0]\n  ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/matrices/:id/reduceStock",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices",
+										":id",
+										"reduceStock"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 May 2023 16:12:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-05-02T10:12:49.942670651-06:00\",\n    \"message\": \"Expected dimensions (4, 8) but received (3, 8)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all matrices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/matrices?page=1&pageSize=5&sortBy=id&sortDir=asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"matrices"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "sortBy",
+									"value": "id"
+								},
+								{
+									"key": "sortDir",
+									"value": "asc"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Incorrect pagination request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices?page=-1&pageSize=1&sortBy=asdadas&sortDir=asdada",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "-1"
+										},
+										{
+											"key": "pageSize",
+											"value": "1"
+										},
+										{
+											"key": "sortBy",
+											"value": "asdadas"
+										},
+										{
+											"key": "sortDir",
+											"value": "asdada"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 May 2023 07:05:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2023-05-04T01:05:23.659999112-06:00\",\n    \"messages\": [\n        \"Property 'page' must be greater than or equal to 0\",\n        \"Property 'sortDir' has to be one of the following: [asc, desc]\",\n        \"Property 'sortBy' has to be one of the following: [id]\",\n        \"Property 'pageSize' must be between 5 and 100\"\n    ]\n}"
+						},
+						{
+							"name": "Default pagination request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "-1",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "sortBy",
+											"value": "asdadas",
+											"disabled": true
+										},
+										{
+											"key": "sortDir",
+											"value": "asdada",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 May 2023 07:06:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"new matrix 1\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"new matrix 2\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"new matrix 3\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"new matrix 4\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"new matrix 5\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"new matrix 6\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"new matrix 7\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"new matrix 8\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"new matrix 9\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"new matrix 10\"\n    }\n]"
+						},
+						{
+							"name": "Correct pagination request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/matrices?page=1&pageSize=5&sortBy=id&sortDir=asc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"matrices"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "5"
+										},
+										{
+											"key": "sortBy",
+											"value": "id"
+										},
+										{
+											"key": "sortDir",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Method"
+								},
+								{
+									"key": "Vary",
+									"value": "Access-Control-Request-Headers"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 04 May 2023 07:07:00 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 6,\n        \"name\": \"new matrix 6\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"new matrix 7\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"new matrix 8\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"new matrix 9\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"new matrix 10\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
