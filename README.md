@@ -160,7 +160,7 @@ Cada una de las pruebas ya tiene precargadas la ruta, acciones, valores, paráme
 
   ![javadoc](Resources/imgs/javadoc.png)
 
- ## Compodoc
+ ### Compodoc
 
 **Ruta**: Matrices-ERP/Matrix-Front/documentation/index.html
 
